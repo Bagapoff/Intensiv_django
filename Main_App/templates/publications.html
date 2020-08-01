@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Мои публикации
+{% endblock %}
+
+{% block content %}
+    <h1>Мои публикации</h1>
+    <br>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Дата публикации</th><th>Название</th>
+            </tr>
+        </thead>
+
+        {% for pub in publications %}
+        <tr>
+            <td>{{ pub.date|date:"H:i d/m/Y" }}</td>
+            <td><a href="/publications/{{ pub.id }}">{{ pub.title }}</a></td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+{% endblock %}

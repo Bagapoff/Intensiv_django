@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Мои контакты
+{% endblock %}
+
+{% block content %}
+    <h1>Мои контакты</h1>
+    <i>Email:</i> {{ email }}<br>
+    <b>Телeфон</b> {{ phone }}<br>
+    <br><br>
+    Вы можете оставить своё сообщение и e-mail для связи:
+    <br>
+    <p>{{ error }}</p>
+    <form method="post" action="/contacts">
+        {% csrf_token %}
+        <textarea name="text" placeholder="Ваше сообщение"></textarea>
+        <br><br>
+        <input type="text" name="email" placeholder="Ваш E-mail">
+        <br><br>
+        <button>Отправить</button>
+    </form>
+{% endblock %}

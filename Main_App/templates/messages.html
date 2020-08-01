@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Сообщения
+{% endblock %}
+
+{% block content %}
+    <h2>Полученные сообщения:</h2><br>
+    {{ alert }}
+    {% for mes in messages %}
+
+        {{ mes.date|date:"H:i d/m/Y" }}
+        <br>
+        {{ mes.text|safe}}
+        <br>
+        <i>{{ mes.email}}</i>
+        <br><br><br>
+        {% endfor %}
+{% endblock %}
